@@ -1,0 +1,39 @@
+h2{
+    font-family: 'Montserrat-Black', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 200;
+}
+
+#typed-element {
+    display: inline-block;
+    white-space: nowrap;
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+.box{
+    overflow-x: hidden;
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-top: 20px;
+}
+.discover-the-political-world-with-politiocprophet{
+    font-family: 'Montserrat-Black', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 500;
+}
+@media (max-width: 992px) {
+    .news-tile .card-title {
+      font-size: 1.2rem;
+    }
+  }
+
+  .news-tile .card-title {
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+    text-align: left;
+  }
+  .news-tile h4 {
+    font-size: 1.2rem;
+  }
+  
