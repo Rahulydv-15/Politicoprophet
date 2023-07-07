@@ -1,9 +1,12 @@
-<div class="p-5 my-4 bg-dark rounded-3">
-    <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">{{article.title}}</h1>
-      <p class="fs-4">
-        {{article.body}}
-      </p>
-    </div>
+<app-loader *ngIf="!dataRecieved" />
+<div *ngIf="dataRecieved" class="p-5 my-4 bg-dark rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">{{ article.title }}</h1>
+    <p class="fs-4" [innerHTML]="sanitizeHtml(article.body)"></p>
+    <p *ngIf="!isHindiRequired" class="lead mb-0 text-white fw-bold" style="text-decoration: underline; cursor: pointer" (click)="showHindiText()">
+      Translate To Hindi
+    </p>
+    
+    <p *ngIf="isHindiRequired" class="fs-4 pt-5 mt-5" [innerHTML]="sanitizeHtml(article.hindiBody)"></p>
   </div>
-  
+</div>

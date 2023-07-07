@@ -9,6 +9,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleComponent } from './components/article/article.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { SomethingWentWrongComponent } from './components/something-went-wrong/something-went-wrong.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ArticleComponent } from './components/article/article.component';
     HomeComponent,
     FooterComponent,
     BlogsComponent,
-    ArticleComponent
+    ArticleComponent,
+    LoaderComponent,
+    AboutUsComponent,
+    SomethingWentWrongComponent
   ],
   imports: [
     BrowserModule,

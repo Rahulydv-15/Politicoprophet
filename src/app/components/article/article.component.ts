@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from 'src/app/services/blogs.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -9,9 +11,13 @@ import { BlogsService } from 'src/app/services/blogs.service';
 export class ArticleComponent implements OnInit {
   slug!: any;
   article!: any;
+  dataRecieved: boolean=false;
+  isHindiRequired: boolean=false;
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogsService
+    private blogService: BlogsService,
+    private sanitizer: DomSanitizer,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -21,13 +27,21 @@ export class ArticleComponent implements OnInit {
         (response) => {
           // Assign the retrieved articles to a variable
           this.article = response;
-          console.log(this.article)
+          this.dataRecieved=true;
         },
         (error) => {
           // Handle any errors that occur during the API call
-          console.error(error);
+          this.router.navigate(['/error']);
         }
       );
     });
   }
+
+  sanitizeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+  showHindiText(){
+    this.isHindiRequired=true;
+  }
+  
 }
