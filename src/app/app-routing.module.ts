@@ -14,6 +14,7 @@ const routes: Routes = [
     path: 'error',
     component: SomethingWentWrongComponent,
   },
+  { path: '**', component: SomethingWentWrongComponent }
   // Add more route configurations as needed
 ];
 
